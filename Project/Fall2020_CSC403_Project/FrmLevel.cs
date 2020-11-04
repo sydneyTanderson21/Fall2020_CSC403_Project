@@ -10,6 +10,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
+    private Enemy enemySmiley;
     private Character[] walls;
 
     private DateTime timeBegin;
@@ -27,10 +28,12 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      enemySmiley = new Enemy(CreatePosition(picEnemySmiley), CreateCollider(picEnemySmiley, PADDING));
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;
       enemyCheeto.Img = picEnemyCheeto.BackgroundImage;
+      enemySmiley.Img = picEnemySmiley.BackgroundImage;
 
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
@@ -80,6 +83,9 @@ namespace Fall2020_CSC403_Project {
       }
       else if (HitAChar(player, enemyCheeto)) {
         Fight(enemyCheeto);
+      }
+      else if(HitAChar(player, enemySmiley)){
+        Fight(enemySmiley);
       }
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
