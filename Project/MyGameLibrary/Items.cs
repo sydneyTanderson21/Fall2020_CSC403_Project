@@ -9,6 +9,7 @@ namespace MyGameLibrary
 {
     class Items
     {
+        //makes the list and such.
         public static List<string> ItemsAll = new List<string>();
         public static List<string> ItemsValue = new List<string>();
         public static List<string> ItemsDesc = new List<string>();
@@ -17,7 +18,7 @@ namespace MyGameLibrary
 
         static void Main(String[] args)
         {
-            //List<string> ItemsAll = new List<string>();
+            //this is where all the items and there information is added to the master list.
             ItemsAll.Add("Cane-Sword");
             ItemsAll.Add("Peanut Shell");
             ItemsAll.Add("Tophat of the dapper");
@@ -48,7 +49,7 @@ namespace MyGameLibrary
             ItemsDesc.Add("Intricate Platemail.");
             ItemsDesc.Add("A Strange Red Glowing Potion.");
 
-
+            //this fills an array with the information for the other lists so they correspond.
             for (int x = 0; x <= ItemsAll.Count; x++)
             {
                 ItemStats[x, 1] = ItemsAll[x];
@@ -64,12 +65,14 @@ namespace MyGameLibrary
                 ItemStats[z, 3] = ItemsAll[z];
             }
 
+            //adds the basic equipment to the backpack list.
             Backpack.Add("Cane-Sword");
             Backpack.Add("Peanut Shell");
             Backpack.Add("Tophat of the dapper");
             Backpack.Add("Monacle of the dapper");
         }
 
+        //these are the operations to interact with the items.
         public List<string> GetList() => ItemsAll;
 
         public List<string> ToBackpack()
