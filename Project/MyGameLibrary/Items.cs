@@ -90,5 +90,10 @@ namespace MyGameLibrary
             int x = ItemsAll.FindIndex(y => y == Item);
             return ItemStats[x, 3];
         }
+        public string InspectValue(string Item)
+        {
+            int x = ItemsAll.FindIndex(y => y == Item);
+            return ItemStats[x, 2];
+        }
     }
 }
