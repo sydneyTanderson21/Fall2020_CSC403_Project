@@ -69,7 +69,16 @@ namespace Fall2020_CSC403_Project {
         enemy.OnAttack(-2);
       }
 
-      UpdateHealthBars();
+      if(player.Health < 20)
+            {
+                picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.babyP;
+
+            }
+
+      //if (player.Health < 1) { picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut; }
+
+
+            UpdateHealthBars();
       if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
         Close();
