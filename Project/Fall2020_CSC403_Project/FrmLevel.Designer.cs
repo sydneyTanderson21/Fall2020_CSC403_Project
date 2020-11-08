@@ -97,9 +97,9 @@
       this.picWall11.BackColor = System.Drawing.Color.Transparent;
       this.picWall11.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall11.Location = new System.Drawing.Point(551, 425); //551, 425
+      this.picWall11.Location = new System.Drawing.Point(551, 425);
       this.picWall11.Name = "picWall11";
-      this.picWall11.Size = new System.Drawing.Size(164, 232); //164,232
+      this.picWall11.Size = new System.Drawing.Size(164, 232);
       this.picWall11.TabIndex = 17;
       this.picWall11.TabStop = false;
       // 
@@ -108,9 +108,9 @@
       this.picWall2.BackColor = System.Drawing.Color.Transparent;
       this.picWall2.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall2.Location = new System.Drawing.Point(551, 1); //551,1 above koolaid man
+      this.picWall2.Location = new System.Drawing.Point(551, 1);
       this.picWall2.Name = "picWall2";
-      this.picWall2.Size = new System.Drawing.Size(469, 67); //469,67
+      this.picWall2.Size = new System.Drawing.Size(469, 67);
       this.picWall2.TabIndex = 16;
       this.picWall2.TabStop = false;
       // 
@@ -130,9 +130,9 @@
       this.picWall7.BackColor = System.Drawing.Color.Transparent;
       this.picWall7.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall7.Location = new System.Drawing.Point(714, 656); //714,656
+      this.picWall7.Location = new System.Drawing.Point(714, 656);
       this.picWall7.Name = "picWall7";
-      this.picWall7.Size = new System.Drawing.Size(380, 67); //380,67
+      this.picWall7.Size = new System.Drawing.Size(380, 67);
       this.picWall7.TabIndex = 14;
       this.picWall7.TabStop = false;
       // 
@@ -141,9 +141,9 @@
       this.picWall1.BackColor = System.Drawing.Color.Transparent;
       this.picWall1.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall1.Location = new System.Drawing.Point(83, 1); //83,1 wall above poison packet
+      this.picWall1.Location = new System.Drawing.Point(83, 1);
       this.picWall1.Name = "picWall1";
-      this.picWall1.Size = new System.Drawing.Size(469, 67); //469,67
+      this.picWall1.Size = new System.Drawing.Size(469, 67);
       this.picWall1.TabIndex = 13;
       this.picWall1.TabStop = false;
       // 
@@ -152,9 +152,9 @@
       this.picWall0.BackColor = System.Drawing.Color.Transparent;
       this.picWall0.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall0.Location = new System.Drawing.Point(2, 1); //2, 1 wall left of smiley&poison
+      this.picWall0.Location = new System.Drawing.Point(2, 1);
       this.picWall0.Name = "picWall0";
-      this.picWall0.Size = new System.Drawing.Size(82, 388); //82,388
+      this.picWall0.Size = new System.Drawing.Size(82, 388);
       this.picWall0.TabIndex = 12;
       this.picWall0.TabStop = false;
       // 
@@ -163,9 +163,9 @@
       this.picWall10.BackColor = System.Drawing.Color.Transparent;
       this.picWall10.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall10.Location = new System.Drawing.Point(350, 250); //653,89 left of koolaid man
+      this.picWall10.Location = new System.Drawing.Point(350, 250);
       this.picWall10.Name = "picWall10";
-      this.picWall10.Size = new System.Drawing.Size(375, 75); //228, 162
+      this.picWall10.Size = new System.Drawing.Size(375, 75);
       this.picWall10.TabIndex = 11;
       this.picWall10.TabStop = false;
       // 
@@ -174,9 +174,9 @@
       this.picWall9.BackColor = System.Drawing.Color.Transparent;
       this.picWall9.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall9.Location = new System.Drawing.Point(350, 64); //307, 64-next to pioson
+      this.picWall9.Location = new System.Drawing.Point(350, 64);
       this.picWall9.Name = "picWall9";
-      this.picWall9.Size = new System.Drawing.Size(53, 250); //53,174
+      this.picWall9.Size = new System.Drawing.Size(53, 250);
       this.picWall9.TabIndex = 10;
       this.picWall9.TabStop = false;
       // 
@@ -185,9 +185,9 @@
       this.picWall6.BackColor = System.Drawing.Color.Transparent;
       this.picWall6.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall6.Location = new System.Drawing.Point(400, 656); //357,656-above Mr.Peanut
+      this.picWall6.Location = new System.Drawing.Point(400, 656);
       this.picWall6.Name = "picWall6";
-      this.picWall6.Size = new System.Drawing.Size(358, 67);//358,67
+      this.picWall6.Size = new System.Drawing.Size(358, 67);
       this.picWall6.TabIndex = 9;
       this.picWall6.TabStop = false;
       // 
@@ -196,9 +196,9 @@
       this.picWall12.BackColor = System.Drawing.Color.Transparent;
       this.picWall12.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall12.Location = new System.Drawing.Point(820, 68); //890,397 by cheetos with knife
+      this.picWall12.Location = new System.Drawing.Point(820, 68);
       this.picWall12.Name = "picWall12";
-      this.picWall12.Size = new System.Drawing.Size(125, 225); //203, 113 ( width s-s ,length T-B)
+      this.picWall12.Size = new System.Drawing.Size(125, 225);
       this.picWall12.TabIndex = 8;
       this.picWall12.TabStop = false;
       // 
@@ -207,9 +207,9 @@
       this.picWall4.BackColor = System.Drawing.Color.Transparent;
       this.picWall4.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall4.Location = new System.Drawing.Point(2, 454); //2,454 left of Mr.peanut
+      this.picWall4.Location = new System.Drawing.Point(2, 454);
       this.picWall4.Name = "picWall4";
-      this.picWall4.Size = new System.Drawing.Size(82, 203); //82, 203
+      this.picWall4.Size = new System.Drawing.Size(82, 203);
       this.picWall4.TabIndex = 7;
       this.picWall4.TabStop = false;
       // 
@@ -218,9 +218,9 @@
       this.picWall5.BackColor = System.Drawing.Color.Transparent;
       this.picWall5.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall5.Location = new System.Drawing.Point(8, 656); //2,656 above peanut
+      this.picWall5.Location = new System.Drawing.Point(8, 656);
       this.picWall5.Name = "picWall5";
-      this.picWall5.Size = new System.Drawing.Size(358, 67); //358,67
+      this.picWall5.Size = new System.Drawing.Size(358, 67);
       this.picWall5.TabIndex = 6;
       this.picWall5.TabStop = false;
       // 
@@ -229,9 +229,9 @@
       this.picEnemyCheeto.BackColor = System.Drawing.Color.Transparent;
       this.picEnemyCheeto.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_cheetos;
       this.picEnemyCheeto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picEnemyCheeto.Location = new System.Drawing.Point(838, 540); //838, 540
+      this.picEnemyCheeto.Location = new System.Drawing.Point(838, 540);
       this.picEnemyCheeto.Name = "picEnemyCheeto";
-      this.picEnemyCheeto.Size = new System.Drawing.Size(64, 107); //64, 107
+      this.picEnemyCheeto.Size = new System.Drawing.Size(64, 107);
       this.picEnemyCheeto.TabIndex = 5;
       this.picEnemyCheeto.TabStop = false;
       // 
@@ -240,9 +240,9 @@
       this.picEnemyPoisonPacket.BackColor = System.Drawing.Color.Transparent;
       this.picEnemyPoisonPacket.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_poisonpacket;
       this.picEnemyPoisonPacket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picEnemyPoisonPacket.Location = new System.Drawing.Point(150, 98); //150,98
+      this.picEnemyPoisonPacket.Location = new System.Drawing.Point(150, 98);
       this.picEnemyPoisonPacket.Name = "picEnemyPoisonPacket";
-      this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96); //63,96
+      this.picEnemyPoisonPacket.Size = new System.Drawing.Size(63, 96);
       this.picEnemyPoisonPacket.TabIndex = 4;
       this.picEnemyPoisonPacket.TabStop = false;
       // 
@@ -251,9 +251,9 @@
       this.picEnemySmiley.BackColor = System.Drawing.Color.Transparent;
       this.picEnemySmiley.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.enemy_smiley;
       this.picEnemySmiley.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picEnemySmiley.Location = new System.Drawing.Point(420, 95); //150,232
+      this.picEnemySmiley.Location = new System.Drawing.Point(420, 95);
       this.picEnemySmiley.Name = "picEnemySmiley";
-      this.picEnemySmiley.Size = new System.Drawing.Size(63, 96); //63, 96
+      this.picEnemySmiley.Size = new System.Drawing.Size(63, 96);
       this.picEnemySmiley.TabIndex = 4;
       this.picEnemySmiley.TabStop = false;
       // 
@@ -262,9 +262,9 @@
       this.picWall3.BackColor = System.Drawing.Color.Transparent;
       this.picWall3.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.wall;
       this.picWall3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picWall3.Location = new System.Drawing.Point(2, 388); //2, 388 above Mr.Peanut
+      this.picWall3.Location = new System.Drawing.Point(2, 388);
       this.picWall3.Name = "picWall3";
-      this.picWall3.Size = new System.Drawing.Size(200, 67); //358, 67
+      this.picWall3.Size = new System.Drawing.Size(200, 67);
       this.picWall3.TabIndex = 3;
       this.picWall3.TabStop = false;
       // 
@@ -294,7 +294,7 @@
       // 
       this.picTingle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picTingle.BackgroundImage")));
       this.picTingle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-      this.picTingle.Location = new System.Drawing.Point(452, 89);
+      this.picTingle.Location = new System.Drawing.Point(436, 482);
       this.picTingle.Name = "picTingle";
       this.picTingle.Size = new System.Drawing.Size(87, 122);
       this.picTingle.TabIndex = 18;

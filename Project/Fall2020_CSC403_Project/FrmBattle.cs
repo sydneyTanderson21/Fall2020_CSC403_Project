@@ -71,7 +71,7 @@ namespace Fall2020_CSC403_Project {
 
       if(player.Health < 20)
             {
-                picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.babyP;
+               picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.babyP;
 
             }
 
