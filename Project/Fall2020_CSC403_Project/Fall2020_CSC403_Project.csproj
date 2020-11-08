@@ -133,6 +133,7 @@
     <Content Include="data\enemy_smiley.png" />
     <Content Include="data\tingle.png" />
     <None Include="Resources\babyP.png" />
+    <Content Include="Resources\strength_LevelUp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

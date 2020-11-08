@@ -22,6 +22,10 @@ namespace Fall2020_CSC403_Project {
       picEnemy.Refresh();
       BackColor = enemy.Color;
       picBossBattle.Visible = false;
+      levelUp.Location = new Point((this.Width / 2) - (levelUp.Width / 2) - 30, (this.Height / 2) - (levelUp.Height / 2) - 200);
+      levelUp.Size = new System.Drawing.Size(180, 208);
+      levelUp.Visible = false;
+    
 
       // Observer pattern
       enemy.AttackEvent += PlayerDamage;
@@ -68,18 +72,24 @@ namespace Fall2020_CSC403_Project {
       if (enemy.Health > 0) {
         enemy.OnAttack(-2);
       }
+       UpdateHealthBars();
 
-      if(player.Health < 20)
-            {
+      if(player.Health < 20){
                picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.babyP;
-
-            }
+       }
 
       //if (player.Health < 1) { picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut; }
 
-
-            UpdateHealthBars();
-      if (player.Health <= 0 || enemy.Health <= 0) {
+      // LEVEL Up - increase strength when enemy is defeated
+      if (enemy.Health <= 0 && player.Health > 0) {
+        Console.WriteLine("Level Up");
+        levelUp.Visible = true;
+        defeatEnemy.Enabled = true;
+        //strength increased
+        player.strength += 0.40;
+      }
+   
+      else if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
         Close();
       }
@@ -97,5 +107,12 @@ namespace Fall2020_CSC403_Project {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
     }
+    private void defeatEnemy_Tick(object sender, EventArgs e){
+        levelUp.Visible = false;
+        defeatEnemy.Enabled = false;
+        instance = null;
+        Close();
+
+     }
   }
 }
