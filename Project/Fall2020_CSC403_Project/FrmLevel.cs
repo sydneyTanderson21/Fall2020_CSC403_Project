@@ -7,6 +7,8 @@ namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     private Player player;
 
+    private NPC tingle;
+
     private Enemy enemyPoisonPacket;
     private Enemy bossKoolaid;
     private Enemy enemyCheeto;
@@ -15,6 +17,7 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
+    private FrmTingle frmTingle; 
 
     public FrmLevel() {
       InitializeComponent();
@@ -25,6 +28,7 @@ namespace Fall2020_CSC403_Project {
       const int NUM_WALLS = 13;
 
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
+      tingle = new NPC(CreatePosition(picTingle), CreateCollider(picTingle, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
@@ -90,6 +94,9 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
+      if (HitAChar(player, tingle)){
+        Talk(tingle);
+      }
 
       // update player's picture box
       picPlayer.Location = new Point((int)player.Position.x, (int)player.Position.y);
@@ -119,6 +126,14 @@ namespace Fall2020_CSC403_Project {
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
+    }
+
+    private void Talk(NPC npc)
+    {
+      player.ResetMoveSpeed();
+      player.MoveBack();
+      frmTingle = new FrmTingle();
+      frmTingle.Show();
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {

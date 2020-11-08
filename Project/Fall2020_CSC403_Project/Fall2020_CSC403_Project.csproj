@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmTingle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTingle.Designer.cs">
+      <DependentUpon>FrmTingle.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBattle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmTingle.resx">
+      <DependentUpon>FrmTingle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBattle.resx">
       <DependentUpon>FrmBattle.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\enemy_smiley.png" />
+    <Content Include="data\tingle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

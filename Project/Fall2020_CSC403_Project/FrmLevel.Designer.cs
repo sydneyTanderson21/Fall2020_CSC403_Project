@@ -46,6 +46,7 @@
       this.picWall3 = new System.Windows.Forms.PictureBox();
       this.picBossKoolAid = new System.Windows.Forms.PictureBox();
       this.picPlayer = new System.Windows.Forms.PictureBox();
+      this.picTingle = new System.Windows.Forms.PictureBox();
       ((System.ComponentModel.ISupportInitialize)(this.picWall11)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picWall8)).BeginInit();
@@ -64,6 +65,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.picWall3)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picTingle)).BeginInit();
       this.SuspendLayout();
       // 
       // lblInGameTime
@@ -288,6 +290,16 @@
       this.picPlayer.TabIndex = 0;
       this.picPlayer.TabStop = false;
       // 
+      // picTingle
+      // 
+      this.picTingle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picTingle.BackgroundImage")));
+      this.picTingle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.picTingle.Location = new System.Drawing.Point(452, 89);
+      this.picTingle.Name = "picTingle";
+      this.picTingle.Size = new System.Drawing.Size(87, 122);
+      this.picTingle.TabIndex = 18;
+      this.picTingle.TabStop = false;
+      // 
       // FrmLevel
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,6 +307,7 @@
       this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
       this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.ClientSize = new System.Drawing.Size(1176, 726);
+      this.Controls.Add(this.picTingle);
       this.Controls.Add(this.picWall11);
       this.Controls.Add(this.picWall2);
       this.Controls.Add(this.picWall8);
@@ -339,6 +352,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.picWall3)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picBossKoolAid)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picTingle)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -367,6 +381,7 @@
     private System.Windows.Forms.PictureBox picWall1;
     private System.Windows.Forms.PictureBox picWall2;
     private System.Windows.Forms.PictureBox picWall11;
+    private System.Windows.Forms.PictureBox picTingle;
   }
 }
 
