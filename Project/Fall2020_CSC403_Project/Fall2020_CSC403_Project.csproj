@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmDead.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDead.Designer.cs">
+      <DependentUpon>FrmDead.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTingle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmDead.resx">
+      <DependentUpon>FrmDead.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTingle.resx">
       <DependentUpon>FrmTingle.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,12 +140,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\enemy_smiley.png" />
+    <None Include="data\raw images\peanuts.jpg" />
     <Content Include="data\tingle.png" />
     <None Include="Resources\vest.png" />
     <None Include="Resources\babyP.png" />
     <None Include="Resources\mask.png" />
     <None Include="Resources\shield.png" />
     <None Include="Resources\helmet.jpg" />
+    <None Include="Resources\blood_drops.png" />
     <Content Include="Resources\strength_LevelUp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

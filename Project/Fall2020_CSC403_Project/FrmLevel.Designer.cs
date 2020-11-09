@@ -79,7 +79,6 @@
       this.lblInGameTime.Size = new System.Drawing.Size(46, 18);
       this.lblInGameTime.TabIndex = 2;
       this.lblInGameTime.Text = "label1";
-      this.lblInGameTime.Click += new System.EventHandler(this.lblInGameTime_Click);
       // 
       // tmrUpdateInGameTime
       // 
@@ -331,6 +330,7 @@
       this.Name = "FrmLevel";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "Explore";
+      this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmLevel_FormClosed);
       this.Load += new System.EventHandler(this.FrmLevel_Load);
       this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyDown);
       this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmLevel_KeyUp);

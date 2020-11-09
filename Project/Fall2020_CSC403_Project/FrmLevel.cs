@@ -5,6 +5,8 @@ using System.Windows.Forms;
 
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
+    public bool formClosed { get; set; }
+    
     private Player player;
 
     private NPC tingle;
@@ -100,8 +102,15 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
-      if (HitAChar(player, tingle)){
+      if (HitAChar(player, tingle))
+      {
         TalkTingle();
+      }
+      
+      //check if dead
+      if(player.Health == 0){
+        Close();
+        formClosed = true; 
       }
 
       // update player's picture box
@@ -165,8 +174,9 @@ namespace Fall2020_CSC403_Project {
       }
     }
 
-    private void lblInGameTime_Click(object sender, EventArgs e) {
-
+    private void FrmLevel_FormClosed(object sender, FormClosedEventArgs e)
+    {
+      formClosed = true;
     }
   }
 }
