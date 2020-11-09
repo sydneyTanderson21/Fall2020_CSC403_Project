@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace Fall2020_CSC403_Project.code {
   public class Player : BattleCharacter {
-    public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
-
+    public Armor shield { get; private set; }
+    public Armor helmet { get; private set; }
+    public Armor vest { get; private set; }
+    public Armor mask { get; private set; }
+    public int totalArmor { get; set; }
+    public int maxArmor { get; private set; }
+   public Player(Vector2 initPos, Collider collider) : base(initPos, collider) {
+      this.shield = new Armor(2);
+      this.helmet = new Armor(1);
+      this.vest = new Armor(2);
+      this.mask = new Armor(1);
+      this.totalArmor = 0;
+      this.maxArmor = this.shield.protectionLevel + this.helmet.protectionLevel + this.vest.protectionLevel + this.mask.protectionLevel;
     }
   }
 }

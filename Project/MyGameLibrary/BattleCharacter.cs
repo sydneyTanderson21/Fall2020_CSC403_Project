@@ -24,6 +24,11 @@ namespace Fall2020_CSC403_Project.code {
       AttackEvent((int)(amount * strength));
     }
 
+    public void OnAttackafterArmor(int amount)
+    {
+        AttackEvent(amount);
+    }
+
     public void AlterHealth(int amount) {
       Health += amount;
     }

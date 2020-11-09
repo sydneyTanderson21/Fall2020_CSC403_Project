@@ -4,73 +4,135 @@ using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Fall2020_CSC403_Project {
-  public partial class FrmBattle : Form {
-    public static FrmBattle instance = null;
-    private Enemy enemy;
-    private Player player;
+    public partial class FrmBattle : Form {
+        public static FrmBattle instance = null;
+        private Enemy enemy;
+        private Player player;
 
-    private FrmBattle() {
-      InitializeComponent();
-      player = Game.player;
-    }
+        private FrmBattle() {
+            InitializeComponent();
+            player = Game.player;
+        }
 
-    public void Setup() {
-      // update for this enemy
-      picEnemy.BackgroundImage = enemy.Img;
-      picEnemy.Refresh();
-      BackColor = enemy.Color;
-      picBossBattle.Visible = false;
-      levelUp.Location = new Point((this.Width / 2) - (levelUp.Width / 2) - 30, (this.Height / 2) - (levelUp.Height / 2) - 200);
-      levelUp.Size = new System.Drawing.Size(180, 208);
-      levelUp.Visible = false;
-    
+        public void Setup() {
+            // update for this enemy
+            btnShield.Enabled = player.shield.Active;
+            btnHelmet.Enabled = player.helmet.Active;
+            btnVest.Enabled = player.vest.Active;
+            btnMask.Enabled = player.mask.Active;
+            picEnemy.BackgroundImage = enemy.Img;
+            picEnemy.Refresh();
+            BackColor = enemy.Color;
+            picBossBattle.Visible = false;
+            levelUp.Location = new Point((this.Width / 2) - (levelUp.Width / 2) - 30, (this.Height / 2) - (levelUp.Height / 2) - 200);
+            levelUp.Size = new System.Drawing.Size(180, 208);
+            levelUp.Visible = false;
 
-      // Observer pattern
-      enemy.AttackEvent += PlayerDamage;
-      player.AttackEvent += EnemyDamage;
 
-      // show health
-      UpdateHealthBars();
-    }
+            // Observer pattern
+            enemy.AttackEvent += PlayerDamage;
+            player.AttackEvent += EnemyDamage;
 
-    public void SetupForBossBattle() {
-      picBossBattle.Location = Point.Empty;
-      picBossBattle.Size = ClientSize;
-      picBossBattle.Visible = true;
+            // show health
+            UpdateHealthBars();
+            //show Armor 
+            UpdateArmorBar();
+        }
 
-      SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
-      simpleSound.Play();
+        public void SetupForBossBattle() {
+            btnShield.Visible = false;
+            btnHelmet.Visible = false;
+            btnVest.Visible = false;
+            btnMask.Visible = false;
+            picBossBattle.Location = Point.Empty;
+            picBossBattle.Size = ClientSize;
+            picBossBattle.Visible = true;
 
-      tmrFinalBattle.Enabled = true;
-    }
+            SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
+            simpleSound.Play();
 
-    public static FrmBattle GetInstance(Enemy enemy) {
-      if (instance == null) {
-        instance = new FrmBattle();
-        instance.enemy = enemy;
-        instance.Setup();
-      }
-      return instance;
-    }
+            tmrFinalBattle.Enabled = true;
+        }
 
-    private void UpdateHealthBars() {
-      float playerHealthPer = player.Health / (float)player.MaxHealth;
-      float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
+        public static FrmBattle GetInstance(Enemy enemy) {
+            if (instance == null) {
+                instance = new FrmBattle();
+                instance.enemy = enemy;
+                instance.Setup();
+            }
+            return instance;
+        }
 
-      const int MAX_HEALTHBAR_WIDTH = 226;
-      lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
-      lblEnemyHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
+        private void UpdateHealthBars() {
+            float playerHealthPer = player.Health / (float)player.MaxHealth;
+            float enemyHealthPer = enemy.Health / (float)enemy.MaxHealth;
 
-      lblPlayerHealthFull.Text = player.Health.ToString();
-      lblEnemyHealthFull.Text = enemy.Health.ToString();
-    }
+            const int MAX_HEALTHBAR_WIDTH = 226;
+            lblPlayerHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * playerHealthPer);
+            lblEnemyHealthFull.Width = (int)(MAX_HEALTHBAR_WIDTH * enemyHealthPer);
 
-    private void btnAttack_Click(object sender, EventArgs e) {
+            lblPlayerHealthFull.Text = player.Health.ToString();
+            lblEnemyHealthFull.Text = enemy.Health.ToString();
+        }
+
+
+        //Armor Add ons
+        private void UpdateArmorBar()
+        {
+            float playerArmour = player.totalArmor / (float)player.maxArmor;
+
+            const int MAX_ARMOR_WIDTH = 226;
+            lblArmorBar.Width = (int)(MAX_ARMOR_WIDTH * playerArmour);
+
+            lblArmorBar.Text = player.totalArmor.ToString();
+        }
+        private void btnShield_Click(object sender, EventArgs e){
+            btnShield.Enabled = false;
+            player.shield.Active = false;
+            player.totalArmor += player.shield.protectionLevel;
+            UpdateArmorBar();
+         }
+        private void btnHelmet_Click(object sender, EventArgs e)
+        {
+            btnHelmet.Enabled = false;
+            player.helmet.Active = false;
+            player.totalArmor += player.helmet.protectionLevel;
+            UpdateArmorBar();
+            }
+        private void btnVest_Click(object sender, EventArgs e)
+        {
+            btnVest.Enabled = false;
+            player.vest.Active = false;
+            player.totalArmor += player.vest.protectionLevel;
+            UpdateArmorBar();
+        }
+        private void btnMask_Click(object sender, EventArgs e)
+        {
+            btnMask.Enabled = false;
+            player.mask.Active = false;
+            player.totalArmor += player.mask.protectionLevel;
+            UpdateArmorBar();
+        }
+
+     private void btnAttack_Click(object sender, EventArgs e) {
       player.OnAttack(-4);
       if (enemy.Health > 0) {
-        enemy.OnAttack(-2);
+        //Armor Bar update
+        if (player.totalArmor > 0){
+            player.totalArmor += (int)(enemy.strength * -2);
+            if(player.totalArmor < 0){
+                //use Observer to attack with new amount
+                enemy.OnAttackafterArmor(player.totalArmor);
+                player.totalArmor = 0;
+            }
+            UpdateArmorBar();
+        }
+        else{
+            enemy.OnAttack(-2);
+        }
       }
        UpdateHealthBars();
 
@@ -106,6 +168,10 @@ namespace Fall2020_CSC403_Project {
     private void tmrFinalBattle_Tick(object sender, EventArgs e) {
       picBossBattle.Visible = false;
       tmrFinalBattle.Enabled = false;
+      btnShield.Visible = true;
+      btnHelmet.Visible = true;
+      btnVest.Visible = true;
+      btnMask.Visible = true;
     }
     private void defeatEnemy_Tick(object sender, EventArgs e){
         levelUp.Visible = false;

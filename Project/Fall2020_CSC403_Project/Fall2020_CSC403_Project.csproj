@@ -132,7 +132,11 @@
   <ItemGroup>
     <Content Include="data\enemy_smiley.png" />
     <Content Include="data\tingle.png" />
+    <None Include="Resources\vest.png" />
     <None Include="Resources\babyP.png" />
+    <None Include="Resources\mask.png" />
+    <None Include="Resources\shield.png" />
+    <None Include="Resources\helmet.jpg" />
     <Content Include="Resources\strength_LevelUp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
