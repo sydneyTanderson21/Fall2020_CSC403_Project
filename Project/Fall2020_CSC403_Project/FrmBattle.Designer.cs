@@ -33,6 +33,8 @@
             this.tmrFinalBattle = new System.Windows.Forms.Timer(this.components);
             this.defeatEnemy = new System.Windows.Forms.Timer(this.components);
             this.lblArmorBar = new System.Windows.Forms.Label();
+            this.tmrStrengthReduced = new System.Windows.Forms.Timer(this.components);
+            this.directHit = new System.Windows.Forms.PictureBox();
             this.btnMask = new System.Windows.Forms.Button();
             this.btnVest = new System.Windows.Forms.Button();
             this.btnHelmet = new System.Windows.Forms.Button();
@@ -41,6 +43,7 @@
             this.picBossBattle = new System.Windows.Forms.PictureBox();
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.directHit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).BeginInit();
@@ -120,6 +123,21 @@
             this.lblArmorBar.Name = "lblArmorBar";
             this.lblArmorBar.Size = new System.Drawing.Size(301, 25);
             this.lblArmorBar.TabIndex = 3;
+            // 
+            // tmrStrengthReduced
+            // 
+            this.tmrStrengthReduced.Interval = 1300;
+            this.tmrStrengthReduced.Tick += new System.EventHandler(this.tmrStrengthReduced_Tick);
+            // 
+            // directHit
+            // 
+            this.directHit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("directHit.BackgroundImage")));
+            this.directHit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.directHit.Location = new System.Drawing.Point(445, 200);
+            this.directHit.Name = "directHit";
+            this.directHit.Size = new System.Drawing.Size(196, 249);
+            this.directHit.TabIndex = 13;
+            this.directHit.TabStop = false;
             // 
             // btnMask
             // 
@@ -226,6 +244,7 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1096, 742);
+            this.Controls.Add(this.directHit);
             this.Controls.Add(this.lblArmorBar);
             this.Controls.Add(this.btnMask);
             this.Controls.Add(this.btnVest);
@@ -245,6 +264,7 @@
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fight!";
+            ((System.ComponentModel.ISupportInitialize)(this.directHit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
@@ -271,5 +291,7 @@
         private System.Windows.Forms.Button btnVest;
         private System.Windows.Forms.Button btnMask;
         private System.Windows.Forms.Label lblArmorBar;
+        private System.Windows.Forms.Timer tmrStrengthReduced;
+        private System.Windows.Forms.PictureBox directHit;
     }
 }
