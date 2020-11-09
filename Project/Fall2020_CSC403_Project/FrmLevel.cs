@@ -108,7 +108,7 @@ namespace Fall2020_CSC403_Project {
       }
       
       //check if dead
-      if(player.Health == 0){
+      if(player.Health <= 0){
         Close();
         formClosed = true; 
       }
