@@ -17,7 +17,10 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
-    private FrmTingle frmTingle; 
+    private FrmTingle frmTingle = new FrmTingle(5);
+
+    //your relationship with tingle
+    private int tingleRelationship = 5;
 
     public FrmLevel() {
       InitializeComponent();
@@ -76,6 +79,9 @@ namespace Fall2020_CSC403_Project {
       // move player
       player.Move();
 
+      //check tingle relationship
+      tingleRelationship = frmTingle.getRelationship();
+
       // check collision with walls
       if (HitAWall(player)) {
         player.MoveBack();
@@ -95,7 +101,7 @@ namespace Fall2020_CSC403_Project {
         Fight(bossKoolaid);
       }
       if (HitAChar(player, tingle)){
-        Talk(tingle);
+        TalkTingle();
       }
 
       // update player's picture box
@@ -122,17 +128,16 @@ namespace Fall2020_CSC403_Project {
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
       frmBattle.Show();
-
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
     }
 
-    private void Talk(NPC npc)
+    private void TalkTingle()
     {
       player.ResetMoveSpeed();
       player.MoveBack();
-      frmTingle = new FrmTingle();
+      frmTingle = new FrmTingle(tingleRelationship);
       frmTingle.Show();
     }
 

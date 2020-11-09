@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Fall2020_CSC403_Project.code;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -12,10 +14,16 @@ namespace Fall2020_CSC403_Project
   public partial class FrmTingle : Form{
 
     //variable tracking how Tingle feels about you (0 is the lowest)
-    private int relationship = 5;
+    private int relationship;
 
-    public FrmTingle(){
+    public FrmTingle(int relationship){
       InitializeComponent();
+      this.relationship = relationship;
+    }
+
+    public int getRelationship()
+    {
+      return relationship;
     }
 
     //close the form
