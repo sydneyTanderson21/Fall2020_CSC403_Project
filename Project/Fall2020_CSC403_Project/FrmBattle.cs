@@ -149,10 +149,10 @@ namespace Fall2020_CSC403_Project {
                 directHit.Visible = true;
                 tmrStrengthReduced.Enabled = true;
                 //enemy Health Increased
-                 enemy.Health += 2;
+                 enemy.Health += 3;
                 //strength reduced
-                player.strength -= 0.25;
-                player.strength = player.strength < 1.5 ? 1.5 : player.strength;
+                player.strength -= 0.50;
+                player.strength = player.strength < 1.5 ? 2 : player.strength;
             }
         }
       }
