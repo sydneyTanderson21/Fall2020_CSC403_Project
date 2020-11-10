@@ -11,6 +11,7 @@ namespace Fall2020_CSC403_Project {
         public static FrmBattle instance = null;
         private Enemy enemy;
         private Player player;
+        private bool finalBattle;
 
         private FrmBattle() {
             InitializeComponent();
@@ -30,6 +31,10 @@ namespace Fall2020_CSC403_Project {
             levelUp.Location = new Point((this.Width / 2) - (levelUp.Width / 2) - 30, (this.Height / 2) - (levelUp.Height / 2) - 200);
             levelUp.Size = new System.Drawing.Size(180, 208);
             levelUp.Visible = false;
+            directHit.Location = new Point((this.Width / 2) - (directHit.Width / 2) - 30, (this.Height / 2) - (directHit.Height / 2) - 200);
+            directHit.Size = new System.Drawing.Size(180, 208);
+            directHit.Visible = false;
+            
 
 
             // Observer pattern
@@ -43,6 +48,7 @@ namespace Fall2020_CSC403_Project {
         }
 
         public void SetupForBossBattle() {
+            finalBattle = true;
             btnShield.Visible = false;
             btnHelmet.Visible = false;
             btnVest.Visible = false;
@@ -50,6 +56,11 @@ namespace Fall2020_CSC403_Project {
             picBossBattle.Location = Point.Empty;
             picBossBattle.Size = ClientSize;
             picBossBattle.Visible = true;
+            //upgrade Final Boss
+            enemy.strength = 3;
+            enemy.MaxHealth = 50;
+            enemy.Health = 50;
+            UpdateHealthBars();
 
             SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
             simpleSound.Play();
@@ -132,6 +143,17 @@ namespace Fall2020_CSC403_Project {
         }
         else{
             enemy.OnAttack(-2);
+            // final boss direct hit, strength reduced
+            if (finalBattle){
+                Console.WriteLine("Strength Reduced");
+                directHit.Visible = true;
+                tmrStrengthReduced.Enabled = true;
+                //enemy Health Increased
+                 enemy.Health += 3;
+                //strength reduced
+                player.strength -= 0.50;
+                player.strength = player.strength < 1.5 ? 2 : player.strength;
+            }
         }
       }
        UpdateHealthBars();
@@ -148,7 +170,7 @@ namespace Fall2020_CSC403_Project {
         levelUp.Visible = true;
         defeatEnemy.Enabled = true;
         //strength increased
-        player.strength += 0.40;
+        player.strength += 0.425;
       }
    
       else if (player.Health <= 0 || enemy.Health <= 0) {
@@ -180,5 +202,12 @@ namespace Fall2020_CSC403_Project {
         Close();
 
      }
-  }
+    private void tmrStrengthReduced_Tick(object sender, EventArgs e)
+    {
+        directHit.Visible = false;
+        tmrStrengthReduced.Enabled = false;
+
+    }
+        
+    }
 }
