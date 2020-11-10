@@ -16,7 +16,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyCheeto;
     private Enemy enemySmiley;
     private Character[] walls;
-
+    private FormChar form;    
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     private FrmTingle frmTingle = new FrmTingle(5);
@@ -102,9 +102,8 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
-      if (HitAChar(player, tingle))
-      {
-        TalkTingle();
+      if (HitAChar(player, tingle)){
+                TalkTingle();
       }
       
       //check if dead
@@ -146,8 +145,10 @@ namespace Fall2020_CSC403_Project {
     {
       player.ResetMoveSpeed();
       player.MoveBack();
-      frmTingle = new FrmTingle(tingleRelationship);
-      frmTingle.Show();
+      //frmTingle = new FrmTingle(tingleRelationship);
+      //frmTingle.Show();
+      form = new FormChar();
+      form.Show();
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
