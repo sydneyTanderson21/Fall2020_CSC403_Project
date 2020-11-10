@@ -8,7 +8,7 @@ namespace Fall2020_CSC403_Project {
     public bool formClosed { get; set; }
     
     private Player player;
-
+   
     private NPC tingle;
 
     private Enemy enemyPoisonPacket;
@@ -16,7 +16,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyCheeto;
     private Enemy enemySmiley;
     private Character[] walls;
-    private FormChar form;    
+    //private FormChar form;    
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     private FrmTingle frmTingle = new FrmTingle(5);
@@ -31,7 +31,7 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
-
+      //picPlayer = form.Show();
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       tingle = new NPC(CreatePosition(picTingle), CreateCollider(picTingle, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -145,10 +145,10 @@ namespace Fall2020_CSC403_Project {
     {
       player.ResetMoveSpeed();
       player.MoveBack();
-      //frmTingle = new FrmTingle(tingleRelationship);
-      //frmTingle.Show();
-      form = new FormChar();
-      form.Show();
+      frmTingle = new FrmTingle(tingleRelationship);
+      frmTingle.Show();
+      //form = new FormChar();
+      //form.Show();
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {

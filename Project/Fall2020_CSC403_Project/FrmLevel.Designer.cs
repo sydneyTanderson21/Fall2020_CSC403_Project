@@ -281,7 +281,15 @@
       // picPlayer
       // 
       this.picPlayer.BackColor = System.Drawing.Color.Transparent;
-      this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+      if (FormChar.Change == false) //Change is defined in FormChar depending on which button is pressed A.K.A character chosen
+            {
+                this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+            }
+
+      if (FormChar.Change == true)
+            {
+                this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Bowser;
+            }
       this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.picPlayer.Location = new System.Drawing.Point(119, 510);
       this.picPlayer.Name = "picPlayer";
