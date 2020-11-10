@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs" />
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmBackpack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBackpack.Designer.cs">
+      <DependentUpon>FrmBackpack.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDead.cs">
       <SubType>Form</SubType>
@@ -76,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBackpack.resx">
+      <DependentUpon>FrmBackpack.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDead.resx">
       <DependentUpon>FrmDead.cs</DependentUpon>
     </EmbeddedResource>
