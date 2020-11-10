@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Fall2020_CSC403_Project.FrmBattle" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ECgACABACCCBABCAAACAAIACBghAAABBAAAIAAAAAAI=</HashCode>
+      <FileName>FrmBattle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fall2020_CSC403_Project.FrmLevel" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAggAAACAuAMAsAAAACIgECGgAQAQKERAKAAgEUGCQA=</HashCode>
+      <FileName>FrmLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fall2020_CSC403_Project.code.BattleCharacter">
+    <Position X="1.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Fall2020_CSC403_Project.code.Character">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Fall2020_CSC403_Project.code.Collider">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Fall2020_CSC403_Project.code.Enemy">
+    <Position X="2.75" Y="9" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Fall2020_CSC403_Project.code.Game">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Fall2020_CSC403_Project.code.NPC">
+    <Position X="5" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Fall2020_CSC403_Project.code.Player">
+    <Position X="0.5" Y="9" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Struct Name="Fall2020_CSC403_Project.code.Vector2">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
