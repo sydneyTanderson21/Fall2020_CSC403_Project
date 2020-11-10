@@ -16,8 +16,8 @@ namespace Fall2020_CSC403_Project.code {
     //telling the backpack to display base items should probably just be put in the main start loop.
     public static bool Item1 = true;
     public static bool Item2 = true;
-    public static bool Item3 = true;
-    public static bool Item4 = true;
+    //public static bool Item3 = true;
+    //public static bool Item4 = true;
   public Player(Vector2 initPos, Collider collider) : base(initPos, collider) 
   {
   this.shield = new Armor(5);

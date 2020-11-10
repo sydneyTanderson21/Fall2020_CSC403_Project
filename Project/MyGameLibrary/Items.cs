@@ -115,11 +115,10 @@ namespace MyGameLibrary
     public class MainItem
     {
         public List<Items> backpack = new List<Items>();
-        public static void Main()
+        public void Initialize()
         {
-            //Items i1 = new Items("Cane-Sword", 1 , "Mr.Peanut's Cane-sword.");
-
-            //backpack.Add(new Items("Cane-Sword", 1, "Mr.Peanut's Cane-sword."));
+            backpack.Add(new Items("Cane-sword", "1", "Mr.Peanut's Cane-sword."));
+            backpack.Add(new Items("Peanut Shell", "1", "Mr.Peanut's Shell."));
         }
         public void Loot(string name, string value, string desc)
         {

@@ -183,12 +183,5 @@ namespace Fall2020_CSC403_Project {
     {
       formClosed = true;
     }
-
-    //    private void button2_Click(object sender, EventArgs e)
-    //    {
-    //        player.ResetMoveSpeed();
-    //        player.MoveBack();
-    //        FrmBackpack.Show();
-    //    }
     }
 }
