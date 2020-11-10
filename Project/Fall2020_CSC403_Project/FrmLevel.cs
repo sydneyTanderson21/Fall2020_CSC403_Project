@@ -168,6 +168,11 @@ namespace Fall2020_CSC403_Project {
           player.GoDown();
           break;
 
+        case Keys.I:
+          var frmBackpack = new FrmBackpack();
+          frmBackpack.Show();
+          break;
+
         default:
           player.ResetMoveSpeed();
           break;
@@ -178,5 +183,12 @@ namespace Fall2020_CSC403_Project {
     {
       formClosed = true;
     }
-  }
+
+    //    private void button2_Click(object sender, EventArgs e)
+    //    {
+    //        player.ResetMoveSpeed();
+    //        player.MoveBack();
+    //        FrmBackpack.Show();
+    //    }
+    }
 }

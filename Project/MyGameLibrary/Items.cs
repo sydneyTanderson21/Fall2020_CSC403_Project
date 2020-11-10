@@ -102,10 +102,10 @@ namespace MyGameLibrary
     //}
     public class Items
     {
-        public string Name { get; private set; }
-        public int Value { get; private set; }
-        public string Desc { get; private set; }
-        public Items(string name, int value, string desc)
+        public string Name { get; set; }
+        public string Value { get; set; }
+        public string Desc { get; set; }
+        public Items(string name, string value, string desc)
         {
             Name = name;
             Value = value;
@@ -114,14 +114,14 @@ namespace MyGameLibrary
     }
     public class MainItem
     {
-        List<Items> backpack = new List<Items>();
+        public List<Items> backpack = new List<Items>();
         public static void Main()
         {
             //Items i1 = new Items("Cane-Sword", 1 , "Mr.Peanut's Cane-sword.");
 
             //backpack.Add(new Items("Cane-Sword", 1, "Mr.Peanut's Cane-sword."));
         }
-        public void Loot(string name, int value, string desc)
+        public void Loot(string name, string value, string desc)
         {
             backpack.Add(new Items(name, value, desc));
         }
