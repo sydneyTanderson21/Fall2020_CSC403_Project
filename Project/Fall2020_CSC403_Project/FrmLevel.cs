@@ -8,7 +8,7 @@ namespace Fall2020_CSC403_Project {
     public bool formClosed { get; set; }
     
     private Player player;
-   
+
     private NPC tingle;
 
     private Enemy enemyPoisonPacket;
@@ -16,7 +16,7 @@ namespace Fall2020_CSC403_Project {
     private Enemy enemyCheeto;
     private Enemy enemySmiley;
     private Character[] walls;
-    //private FormChar form;    
+
     private DateTime timeBegin;
     private FrmBattle frmBattle;
     private FrmTingle frmTingle = new FrmTingle(5);
@@ -31,7 +31,7 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_Load(object sender, EventArgs e) {
       const int PADDING = 7;
       const int NUM_WALLS = 13;
-      //picPlayer = form.Show();
+
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       tingle = new NPC(CreatePosition(picTingle), CreateCollider(picTingle, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
@@ -47,6 +47,8 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      txtWeapons.Visible = false;
+      txtHealth.Visible = false;
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -77,17 +79,6 @@ namespace Fall2020_CSC403_Project {
       lblInGameTime.Text = "Time: " + time.ToString();
     }
 
-    public void Reaper(object sender, EventArgs e, Enemy enemy){
-            if (bossKoolaid.Health <= 0)
-            {
-                FormChar.koolaidReaper = false;
-            }
-            if(enemyCheeto.Health <= 0)
-            {
-                FormChar.cheetoReaper = false;
-            }
-        }
-
     private void tmrPlayerMove_Tick(object sender, EventArgs e) {
       // move player
       player.Move();
@@ -113,8 +104,9 @@ namespace Fall2020_CSC403_Project {
       if (HitAChar(player, bossKoolaid)) {
         Fight(bossKoolaid);
       }
-      if (HitAChar(player, tingle)){
-                TalkTingle();
+      if (HitAChar(player, tingle))
+      {
+        TalkTingle();
       }
       
       //check if dead
@@ -146,10 +138,13 @@ namespace Fall2020_CSC403_Project {
       player.ResetMoveSpeed();
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
+      frmBattle.Refresh();
+      frmBattle.ShowDialog();
+   
+      
     }
 
     private void TalkTingle()
@@ -158,8 +153,6 @@ namespace Fall2020_CSC403_Project {
       player.MoveBack();
       frmTingle = new FrmTingle(tingleRelationship);
       frmTingle.Show();
-      //form = new FormChar();
-      //form.Show();
     }
 
     private void FrmLevel_KeyDown(object sender, KeyEventArgs e) {
@@ -180,6 +173,23 @@ namespace Fall2020_CSC403_Project {
           player.GoDown();
           break;
 
+        case Keys.I:
+          var frmBackpack = new FrmBackpack();
+          frmBackpack.ShowDialog();
+            //display that a player has selected a weapon and/or health boost
+          if(frmBackpack.selectedWeapon) {
+                tmrWeapon.Enabled = true;
+                txtWeapons.Visible = true;
+            }
+          if (frmBackpack.selectedHealth)
+          {
+              tmrHealth.Enabled = true;
+              txtHealth.Visible = true;
+          }
+          frmBackpack.selectedHealth = false;
+          frmBackpack.selectedWeapon = false;
+          break;
+
         default:
           player.ResetMoveSpeed();
           break;
@@ -190,5 +200,17 @@ namespace Fall2020_CSC403_Project {
     {
       formClosed = true;
     }
-  }
+
+        private void tmrHealth_Tick(object sender, EventArgs e)
+        {
+            txtHealth.Visible = false;
+            tmrHealth.Enabled = false;
+        }
+
+        private void tmrWeapon_Tick(object sender, EventArgs e)
+        {
+            txtWeapons.Visible = false;
+            tmrWeapon.Enabled = false;
+        }
+    }
 }
