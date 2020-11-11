@@ -19,10 +19,12 @@ namespace Fall2020_CSC403_Project {
 
     private DateTime timeBegin;
     private FrmBattle frmBattle;
-    private FrmTingle frmTingle = new FrmTingle(5);
+    private FrmTingle frmTingle;
+    
 
-    //your relationship with tingle
+    //your relationship and gift status with tingle
     private int tingleRelationship = 5;
+    private bool tingleGiftGiven = false;
 
     public FrmLevel() {
       InitializeComponent();
@@ -56,7 +58,8 @@ namespace Fall2020_CSC403_Project {
         walls[w] = new Character(CreatePosition(pic), CreateCollider(pic, PADDING));
       }
 
-      Game.player = player;
+    frmTingle = new FrmTingle(tingleRelationship, tingleGiftGiven, player);
+    Game.player = player;
       timeBegin = DateTime.Now;
     }
 
@@ -151,7 +154,7 @@ namespace Fall2020_CSC403_Project {
     {
       player.ResetMoveSpeed();
       player.MoveBack();
-      frmTingle = new FrmTingle(tingleRelationship);
+      frmTingle = new FrmTingle(tingleRelationship, tingleGiftGiven, player);
       frmTingle.Show();
     }
 
