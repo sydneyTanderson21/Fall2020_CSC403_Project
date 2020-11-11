@@ -93,6 +93,7 @@
       this.Controls.Add(this.label1);
       this.Controls.Add(this.picPeanuts);
       this.Name = "FrmDead";
+      this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDead_FormClosed);
       ((System.ComponentModel.ISupportInitialize)(this.picPeanuts)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
