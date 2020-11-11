@@ -45,11 +45,11 @@ namespace Fall2020_CSC403_Project.code {
                 new Items("Cupcake", 5, "HEALTH")
             };
       }
-        public string Loot(Enemy e)
+        public void Loot(Enemy e)
         { //adds item to backpack
             this.backpack.Add(e.personalItem);
             e.personalItem = null;
-            return "You took " + e.personalItem.Name + " from enemy";
+            //return "You took " + e.personalItem.Name + " from enemy";
         }
 
         public Items findItem(string name)

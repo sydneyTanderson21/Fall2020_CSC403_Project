@@ -35,9 +35,13 @@ namespace Fall2020_CSC403_Project {
       player = new Player(CreatePosition(picPlayer), CreateCollider(picPlayer, PADDING));
       tingle = new NPC(CreatePosition(picTingle), CreateCollider(picTingle, PADDING));
       bossKoolaid = new Enemy(CreatePosition(picBossKoolAid), CreateCollider(picBossKoolAid, PADDING));
+      bossKoolaid.personalItem = new Items("Trophy", 100);
       enemyPoisonPacket = new Enemy(CreatePosition(picEnemyPoisonPacket), CreateCollider(picEnemyPoisonPacket, PADDING));
+      enemyPoisonPacket.personalItem = new Items("Poison Bomb", 5);
       enemyCheeto = new Enemy(CreatePosition(picEnemyCheeto), CreateCollider(picEnemyCheeto, PADDING));
+      enemyCheeto.personalItem = new Items("Cleaver", 8);
       enemySmiley = new Enemy(CreatePosition(picEnemySmiley), CreateCollider(picEnemySmiley, PADDING));
+      enemySmiley.personalItem = new Items("Smile", 10, "HEALTH");
 
       bossKoolaid.Img = picBossKoolAid.BackgroundImage;
       enemyPoisonPacket.Img = picEnemyPoisonPacket.BackgroundImage;

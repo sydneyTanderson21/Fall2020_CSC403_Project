@@ -199,6 +199,11 @@ namespace Fall2020_CSC403_Project {
         defeatEnemy.Enabled = true;
         //strength increased
         player.strength += 0.425;
+       if (enemy.personalItem != null)
+       {
+            player.Loot(enemy);
+       }
+        
       }
    
       else if (player.Health <= 0 || enemy.Health <= 0) {
