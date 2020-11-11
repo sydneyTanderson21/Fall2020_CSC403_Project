@@ -20,6 +20,8 @@ namespace Fall2020_CSC403_Project {
       //this will loop as long as the user did not quit
       while (didNotQuit)
       {
+          FormChar frmChar = new FormChar();
+          Application.Run(frmChar);
           // make a form level and run it
           FrmLevel frmLevel = new FrmLevel();
           Application.Run(frmLevel);

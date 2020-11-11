@@ -288,7 +288,7 @@
             this.picWall3.Size = new System.Drawing.Size(267, 82);
             this.picWall3.TabIndex = 3;
             this.picWall3.TabStop = false;
-            // 
+            //
             // picBossKoolAid
             // 
             this.picBossKoolAid.BackColor = System.Drawing.Color.Transparent;
@@ -304,7 +304,15 @@
             // picPlayer
             // 
             this.picPlayer.BackColor = System.Drawing.Color.Transparent;
-            this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+            if (FormChar.Change == false)
+            {
+                this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.player;
+            }
+
+            if (FormChar.Change == true)
+            {
+                this.picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.Bowser;
+            }
             this.picPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picPlayer.Location = new System.Drawing.Point(159, 628);
             this.picPlayer.Margin = new System.Windows.Forms.Padding(4);
