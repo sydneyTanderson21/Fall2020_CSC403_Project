@@ -33,11 +33,5 @@ namespace Fall2020_CSC403_Project
       tryAgain = false;
       Close();
     }
-
-    private void FrmDead_FormClosed(object sender, FormClosedEventArgs e)
-    {
-      tryAgain = false;
-      Close();
-    }
   }
 }
