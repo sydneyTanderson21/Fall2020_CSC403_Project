@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmBackpack.cs">
+    <Compile Include="FormChar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBackpack.Designer.cs">
-      <DependentUpon>FrmBackpack.cs</DependentUpon>
+    <Compile Include="FormChar.Designer.cs">
+      <DependentUpon>FormChar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDead.cs">
       <SubType>Form</SubType>
@@ -78,8 +78,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmBackpack.resx">
-      <DependentUpon>FrmBackpack.cs</DependentUpon>
+    <EmbeddedResource Include="FormChar.resx">
+      <DependentUpon>FormChar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDead.resx">
       <DependentUpon>FrmDead.cs</DependentUpon>
@@ -92,6 +92,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLevel.resx">
       <DependentUpon>FrmLevel.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,6 +114,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Bowser.png" />
+    <None Include="Resources\BlackGoku.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
