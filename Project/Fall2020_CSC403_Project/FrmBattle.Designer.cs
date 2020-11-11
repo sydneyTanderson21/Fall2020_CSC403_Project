@@ -43,6 +43,10 @@
             this.picBossBattle = new System.Windows.Forms.PictureBox();
             this.picEnemy = new System.Windows.Forms.PictureBox();
             this.picPlayer = new System.Windows.Forms.PictureBox();
+            this.listWeapons = new System.Windows.Forms.ListView();
+            this.colWeapons = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tmrbkpkkWarning = new System.Windows.Forms.Timer(this.components);
+            this.txtbkpkWarning = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.directHit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).BeginInit();
@@ -111,7 +115,7 @@
             // 
             // defeatEnemy
             // 
-            this.defeatEnemy.Interval = 2500;
+            this.defeatEnemy.Interval = 2000;
             this.defeatEnemy.Tick += new System.EventHandler(this.defeatEnemy_Tick);
             // 
             // lblArmorBar
@@ -237,6 +241,40 @@
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
             // 
+            // listWeapons
+            // 
+            this.listWeapons.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colWeapons});
+            this.listWeapons.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listWeapons.HideSelection = false;
+            this.listWeapons.Location = new System.Drawing.Point(411, 318);
+            this.listWeapons.MultiSelect = false;
+            this.listWeapons.Name = "listWeapons";
+            this.listWeapons.Size = new System.Drawing.Size(123, 131);
+            this.listWeapons.TabIndex = 14;
+            this.listWeapons.UseCompatibleStateImageBehavior = false;
+            // 
+            // colWeapons
+            // 
+            this.colWeapons.Text = "Weapon(s)";
+            this.colWeapons.Width = 100;
+            // 
+            // tmrbkpkkWarning
+            // 
+            this.tmrbkpkkWarning.Interval = 2000;
+            this.tmrbkpkkWarning.Tick += new System.EventHandler(this.tmrbkpkkWarning_Tick);
+            // 
+            // txtbkpkWarning
+            // 
+            this.txtbkpkWarning.AutoSize = true;
+            this.txtbkpkWarning.BackColor = System.Drawing.Color.Red;
+            this.txtbkpkWarning.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbkpkWarning.Location = new System.Drawing.Point(344, 200);
+            this.txtbkpkWarning.Name = "txtbkpkWarning";
+            this.txtbkpkWarning.Size = new System.Drawing.Size(432, 69);
+            this.txtbkpkWarning.TabIndex = 16;
+            this.txtbkpkWarning.Text = "Can\'t open backpack during battle!\r\n\r\nLeave battle to get item(s) from backpack!";
+            // 
             // FrmBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -244,6 +282,8 @@
             this.BackColor = System.Drawing.Color.Green;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1096, 742);
+            this.Controls.Add(this.txtbkpkWarning);
+            this.Controls.Add(this.listWeapons);
             this.Controls.Add(this.directHit);
             this.Controls.Add(this.lblArmorBar);
             this.Controls.Add(this.btnMask);
@@ -260,16 +300,18 @@
             this.Controls.Add(this.picEnemy);
             this.Controls.Add(this.picPlayer);
             this.DoubleBuffered = true;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmBattle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Fight!";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmBattle_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.directHit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.levelUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBossBattle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnemy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
     }
 
@@ -293,5 +335,9 @@
         private System.Windows.Forms.Label lblArmorBar;
         private System.Windows.Forms.Timer tmrStrengthReduced;
         private System.Windows.Forms.PictureBox directHit;
+        private System.Windows.Forms.ListView listWeapons;
+        private System.Windows.Forms.ColumnHeader colWeapons;
+        private System.Windows.Forms.Timer tmrbkpkkWarning;
+        private System.Windows.Forms.Label txtbkpkWarning;
     }
 }

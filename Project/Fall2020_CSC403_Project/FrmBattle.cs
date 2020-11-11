@@ -34,7 +34,20 @@ namespace Fall2020_CSC403_Project {
             directHit.Location = new Point((this.Width / 2) - (directHit.Width / 2) - 30, (this.Height / 2) - (directHit.Height / 2) - 200);
             directHit.Size = new System.Drawing.Size(180, 208);
             directHit.Visible = false;
-            
+            this.listWeapons.FullRowSelect = true;
+            this.listWeapons.View = View.Details;
+            this.txtbkpkWarning.Visible = false;
+            //Weapons
+            this.listWeapons.BeginUpdate();
+            if (player.hasWeapon)
+            {
+                foreach (Items i in player.curWeapons)
+                {
+                    this.listWeapons.Items.Add(new ListViewItem(i.Name));
+                }
+            }
+            this.listWeapons.EndUpdate();
+
 
 
             // Observer pattern
@@ -53,6 +66,7 @@ namespace Fall2020_CSC403_Project {
             btnHelmet.Visible = false;
             btnVest.Visible = false;
             btnMask.Visible = false;
+            listWeapons.Visible = false;
             picBossBattle.Location = Point.Empty;
             picBossBattle.Size = ClientSize;
             picBossBattle.Visible = true;
@@ -61,6 +75,7 @@ namespace Fall2020_CSC403_Project {
             enemy.MaxHealth = 50;
             enemy.Health = 50;
             UpdateHealthBars();
+            lblArmorBar.Visible = false;
 
             SoundPlayer simpleSound = new SoundPlayer(Resources.final_battle);
             simpleSound.Play();
@@ -129,7 +144,20 @@ namespace Fall2020_CSC403_Project {
         }
 
      private void btnAttack_Click(object sender, EventArgs e) {
+            //check to see if player has selected a weapon to use
+      if (player.hasWeapon && listWeapons.Items.Count > 0 && listWeapons.SelectedItems.Count >0)
+      {
+       
+          Items i = player.curWeapons.Find(item => item.Name == listWeapons.SelectedItems[0].Text);
+        //  Console.WriteLine(i);
+          listWeapons.Items[listWeapons.SelectedIndices[0]].Remove();
+          player.hasWeapon = listWeapons.Items.Count <= 0 ? false: true;
+          player.OnAttack(-(i.Value));
+          player.curWeapons.Remove(i);
+        
+      }else{
       player.OnAttack(-4);
+      }
       if (enemy.Health > 0) {
         //Armor Bar update
         if (player.totalArmor > 0){
@@ -194,6 +222,8 @@ namespace Fall2020_CSC403_Project {
       btnHelmet.Visible = true;
       btnVest.Visible = true;
       btnMask.Visible = true;
+      listWeapons.Visible = true;
+      lblArmorBar.Visible = true;
     }
     private void defeatEnemy_Tick(object sender, EventArgs e){
         levelUp.Visible = false;
@@ -208,6 +238,41 @@ namespace Fall2020_CSC403_Project {
         tmrStrengthReduced.Enabled = false;
 
     }
-        
+
+        private void FrmBattle_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.I:
+                    txtbkpkWarning.Visible = true;
+                    tmrbkpkkWarning.Enabled = true;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private void tmrbkpkkWarning_Tick(object sender, EventArgs e)
+        {
+            tmrbkpkkWarning.Enabled = false;
+            txtbkpkWarning.Visible = false;
+        }
+
+        public override void Refresh()
+        {
+            this.listWeapons.BeginUpdate();
+            this.listWeapons.Items.Clear();
+            this.listWeapons.Update(); // In case there is databinding
+            if (player.hasWeapon)
+            {
+                foreach (Items i in player.curWeapons)
+                {
+                    this.listWeapons.Items.Add(new ListViewItem(i.Name));
+                }
+            }
+            this.listWeapons.Refresh();
+            this.listWeapons.EndUpdate();
+        }
     }
 }

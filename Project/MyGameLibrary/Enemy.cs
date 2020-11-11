@@ -15,6 +15,9 @@ namespace Fall2020_CSC403_Project.code {
     /// </summary>
     public Color Color { get; set; }
 
+    // personalItem that can be looted
+    public Items personalItem {get; set; }
+
     /// <summary>
     /// 
     /// </summary>

@@ -47,6 +47,8 @@ namespace Fall2020_CSC403_Project {
       bossKoolaid.Color = Color.Red;
       enemyPoisonPacket.Color = Color.Green;
       enemyCheeto.Color = Color.FromArgb(255, 245, 161);
+      txtWeapons.Visible = false;
+      txtHealth.Visible = false;
 
       walls = new Character[NUM_WALLS];
       for (int w = 0; w < NUM_WALLS; w++) {
@@ -136,10 +138,13 @@ namespace Fall2020_CSC403_Project {
       player.ResetMoveSpeed();
       player.MoveBack();
       frmBattle = FrmBattle.GetInstance(enemy);
-      frmBattle.Show();
       if (enemy == bossKoolaid) {
         frmBattle.SetupForBossBattle();
       }
+      frmBattle.Refresh();
+      frmBattle.ShowDialog();
+   
+      
     }
 
     private void TalkTingle()
@@ -170,7 +175,19 @@ namespace Fall2020_CSC403_Project {
 
         case Keys.I:
           var frmBackpack = new FrmBackpack();
-          frmBackpack.Show();
+          frmBackpack.ShowDialog();
+            //display that a player has selected a weapon and/or health boost
+          if(frmBackpack.selectedWeapon) {
+                tmrWeapon.Enabled = true;
+                txtWeapons.Visible = true;
+            }
+          if (frmBackpack.selectedHealth)
+          {
+              tmrHealth.Enabled = true;
+              txtHealth.Visible = true;
+          }
+          frmBackpack.selectedHealth = false;
+          frmBackpack.selectedWeapon = false;
           break;
 
         default:
@@ -183,5 +200,17 @@ namespace Fall2020_CSC403_Project {
     {
       formClosed = true;
     }
+
+        private void tmrHealth_Tick(object sender, EventArgs e)
+        {
+            txtHealth.Visible = false;
+            tmrHealth.Enabled = false;
+        }
+
+        private void tmrWeapon_Tick(object sender, EventArgs e)
+        {
+            txtWeapons.Visible = false;
+            tmrWeapon.Enabled = false;
+        }
     }
 }
