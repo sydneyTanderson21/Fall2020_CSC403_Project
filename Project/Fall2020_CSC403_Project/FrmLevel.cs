@@ -115,7 +115,21 @@ namespace Fall2020_CSC403_Project {
       {
         TalkTingle();
       }
-      
+      if(player.Health < 20)
+       {
+        if (FormChar.Change == false)
+        {
+
+            picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.babyP;
+        }
+
+        if (FormChar.Change == true)
+        {
+
+            picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.babyBowser;
+        }
+    }
+
       //check if dead
       if(player.Health <= 0){
         Close();

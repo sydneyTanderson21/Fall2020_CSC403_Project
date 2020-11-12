@@ -169,6 +169,7 @@
     <None Include="Resources\blood_drops.png" />
     <None Include="Resources\caution2.png" />
     <None Include="Resources\Bowser.png" />
+    <None Include="Resources\babyBowser.png" />
     <Content Include="Resources\strength_LevelUp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

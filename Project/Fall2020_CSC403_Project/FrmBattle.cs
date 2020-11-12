@@ -48,7 +48,8 @@ namespace Fall2020_CSC403_Project {
             }
             this.listWeapons.EndUpdate();
 
-
+            //proper images when health is below 20
+            properImages();
 
             // Observer pattern
             enemy.AttackEvent += PlayerDamage;
@@ -186,14 +187,12 @@ namespace Fall2020_CSC403_Project {
       }
        UpdateHealthBars();
 
-      if(player.Health < 20){
-               picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.babyP;
-       }
+       properImages();
 
       //if (player.Health < 1) { picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.peanut; }
 
-      // LEVEL Up - increase strength when enemy is defeated
-      if (enemy.Health <= 0 && player.Health > 0) {
+            // LEVEL Up - increase strength when enemy is defeated
+            if (enemy.Health <= 0 && player.Health > 0) {
         Console.WriteLine("Level Up");
         levelUp.Visible = true;
         defeatEnemy.Enabled = true;
@@ -278,6 +277,25 @@ namespace Fall2020_CSC403_Project {
             }
             this.listWeapons.Refresh();
             this.listWeapons.EndUpdate();
+        }
+
+        private void properImages()
+        {
+            if (player.Health < 20)
+            {
+                if (FormChar.Change == false)
+                {
+
+                    picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.babyP;
+                }
+
+                if (FormChar.Change == true)
+                {
+
+                    picPlayer.BackgroundImage = global::Fall2020_CSC403_Project.Properties.Resources.babyBowser;
+                }
+
+            }
         }
     }
 }
