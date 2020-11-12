@@ -160,6 +160,7 @@ namespace Fall2020_CSC403_Project {
       if (enemyPoisonPacket.Health <= 0 && enemyCheeto.Health <= 0 && enemySmiley.Health <= 0 && bossKoolaid.Health <= 0)
       {
         Close();
+        loss = false;
         victory = true;
         formClosed = true;
       }
