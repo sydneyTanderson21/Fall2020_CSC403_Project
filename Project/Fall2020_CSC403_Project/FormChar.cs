@@ -15,10 +15,10 @@ namespace Fall2020_CSC403_Project
     public partial class FormChar : Form
     {
         public static bool Change;
-        public static bool cheetoReaper = true;
-        public static bool packetReaper = true;
-        public static bool smileyReaper = true;
-        public static bool koolaidReaper = true;
+        //public static bool cheetoReaper = true;
+       //public static bool packetReaper = true;
+        //public static bool smileyReaper = true;
+        //public static bool koolaidReaper = true;
 
         public FormChar()
         {
