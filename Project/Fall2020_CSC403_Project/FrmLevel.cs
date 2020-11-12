@@ -6,6 +6,8 @@ using System.Windows.Forms;
 namespace Fall2020_CSC403_Project {
   public partial class FrmLevel : Form {
     public bool formClosed { get; set; }
+    public bool victory { get; set; }
+    public bool loss { get; set; }
     
     private Player player;
 
@@ -100,16 +102,32 @@ namespace Fall2020_CSC403_Project {
 
       // check collision with enemies
       if (HitAChar(player, enemyPoisonPacket)) {
-        Fight(enemyPoisonPacket);
+        if (enemyPoisonPacket.Health <= 0) { }
+        else
+        {
+          Fight(enemyPoisonPacket);
+        }
       }
       else if (HitAChar(player, enemyCheeto)) {
-        Fight(enemyCheeto);
+        if (enemyCheeto.Health <= 0) { }
+        else
+        {
+          Fight(enemyCheeto);
+        }
       }
       else if(HitAChar(player, enemySmiley)){
-        Fight(enemySmiley);
+        if (enemySmiley.Health <= 0) { }
+        else
+        {
+          Fight(enemySmiley);
+        }
       }
       if (HitAChar(player, bossKoolaid)) {
-        Fight(bossKoolaid);
+        if (bossKoolaid.Health <= 0) { }
+        else
+        {
+          Fight(bossKoolaid);
+        }
       }
       if (HitAChar(player, tingle))
       {
@@ -133,7 +151,17 @@ namespace Fall2020_CSC403_Project {
       //check if dead
       if(player.Health <= 0){
         Close();
+        loss = true;
         formClosed = true; 
+      }
+
+      //check if won
+      //this happens if all enemies died
+      if (enemyPoisonPacket.Health <= 0 && enemyCheeto.Health <= 0 && enemySmiley.Health <= 0 && bossKoolaid.Health <= 0)
+      {
+        Close();
+        victory = true;
+        formClosed = true;
       }
 
       // update player's picture box
@@ -164,8 +192,26 @@ namespace Fall2020_CSC403_Project {
       }
       frmBattle.Refresh();
       frmBattle.ShowDialog();
-   
-      
+      //check if enemies are dead
+      if (enemySmiley.Health <= 0 && picEnemySmiley.Visible == true)
+      {
+        Rectangle rect = new Rectangle(picEnemySmiley.Location, new Size(0,0));
+        enemySmiley.Collider = new Collider(rect);
+        picEnemySmiley.Visible = false;
+      }
+      else if (enemyCheeto.Health <= 0 && picEnemyCheeto.Visible == true)
+      {
+        picEnemyCheeto.Visible = false;
+      }
+      else if (enemyPoisonPacket.Health <= 0 && picEnemyPoisonPacket.Visible == true)
+      {
+        picEnemyPoisonPacket.Visible = false;
+      }
+      else if (bossKoolaid.Health <= 0 && picBossKoolAid.Visible == true)
+      {
+        picBossKoolAid.Visible = false;
+      }
+
     }
 
     private void TalkTingle()
@@ -220,6 +266,7 @@ namespace Fall2020_CSC403_Project {
     private void FrmLevel_FormClosed(object sender, FormClosedEventArgs e)
     {
       formClosed = true;
+      loss = true;
     }
 
         private void tmrHealth_Tick(object sender, EventArgs e)

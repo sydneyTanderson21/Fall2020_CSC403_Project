@@ -8,12 +8,14 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Fall2020_CSC403_Project {
     public partial class FrmBattle : Form {
+        public bool battleEnded { get; set; }
+
         public static FrmBattle instance = null;
         private Enemy enemy;
         private Player player;
         private bool finalBattle;
 
-        private FrmBattle() {
+        public  FrmBattle() {
             InitializeComponent();
             player = Game.player;
         }
@@ -207,6 +209,7 @@ namespace Fall2020_CSC403_Project {
    
       else if (player.Health <= 0 || enemy.Health <= 0) {
         instance = null;
+        battleEnded = true;
         Close();
       }
     }

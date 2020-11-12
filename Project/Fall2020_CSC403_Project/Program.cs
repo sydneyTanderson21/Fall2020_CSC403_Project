@@ -22,6 +22,7 @@ namespace Fall2020_CSC403_Project {
       {
           FormChar frmChar = new FormChar();
           Application.Run(frmChar);
+          
           // make a form level and run it
           FrmLevel frmLevel = new FrmLevel();
           Application.Run(frmLevel);
@@ -29,11 +30,22 @@ namespace Fall2020_CSC403_Project {
           //after running the form, check to see if it closed
           if (frmLevel.formClosed)
           {
-          // go to the dead form
-          FrmDead frmDead = new FrmDead();
-          Application.Run(frmDead);
+          if (frmLevel.loss)
+          {
+            // go to the dead form
+            FrmDead frmDead = new FrmDead();
+            Application.Run(frmDead);
+            didNotQuit = frmDead.tryAgain;
+          }
+          else if (frmLevel.victory)
+          {
+            // go to the win form
+            FrmWon frmWon = new FrmWon();
+            Application.Run(frmWon);
+            didNotQuit = frmWon.tryAgain;
+          }
           //set the didNotQuit var to true or false depending on how the user answers
-          didNotQuit = frmDead.tryAgain;
+          
           }
         }
     }
